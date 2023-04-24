@@ -1,6 +1,9 @@
 pipeline{
     
-    agent any 
+    agent any
+    tools {
+        maven 'maven'
+    }
     
     stages {
         
@@ -47,7 +50,7 @@ pipeline{
                     
                     withSonarQubeEnv(credentialsId: 'sonar-api') {
                         
-                        sh 'mvn clean package sonar:sonar'
+                        sh 'mvn clean install sonar:sonar'
                     }
                 }
             }
