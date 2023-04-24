@@ -67,7 +67,7 @@ pipeline {
                     ],
                     credentialsId: 'nexus-auth',
                     groupId: 'com.example',
-                    nexusUrl: '34.125.85.117:8081/',
+                    nexusUrl: '34.125.85.117:8081',
                     nexusVersion: 'nexus2',
                     protocol: 'http',
                     repository: 'dev',
