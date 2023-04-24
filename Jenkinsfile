@@ -45,7 +45,13 @@ pipeline{
             steps{
                  withSonarQubeEnv('sonar-api') {
                         
-                        sh 'mvn clean package sonar:sonar'
+                        sh '''mvn clean package sonar:sonar'
+                            -Dsonar.projectKey=java 
+                            -Dsonar.host.url=http://34.125.85.117:9000 
+                            -Dsonar.login=sqp_45fb4cc16c071730a5bcbe35e3908d19060c311f'''
+                     
+                     
+                     
                  }
             }
         }  
