@@ -6,5 +6,5 @@ run mvn install
 from openjdk:11-jre-slim
 workdir /app
 copy --from=dev /app/target/Uber.jar /app
-expose 8099
+expose 8088
 cmd ["java","-jar","Uber.jar"]
