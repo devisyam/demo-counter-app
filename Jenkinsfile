@@ -77,6 +77,15 @@ pipeline {
                 }
             }
         }
+        stage('docker build'){
+            steps {
+                sh "docker build -t sam ."
+            }
+        }
+        stage('docker host') {
+            steps {
+                sh "docker run -itd --name devisyam -p 8099:8099 sam"
+            }
+        }
     }
 }
-        
