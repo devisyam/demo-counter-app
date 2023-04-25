@@ -79,12 +79,12 @@ pipeline {
         }
         stage('docker build'){
             steps {
-                sh "docker build -t sam ."
+                sh "docker build -t sen ."
             }
         }
         stage('docker host') {
             steps {
-                sh "docker run -itd --name devisyam -p 8099:8099 sam"
+                sh "docker run -itd --name devisyam -p 8088:8088 sen"
             }
         }
     }
