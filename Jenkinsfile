@@ -84,7 +84,7 @@ pipeline {
         }
         stage('docker host') {
             steps {
-                sh "docker run -itd --name devisyam -p 8088:8088 sen"
+                sh "docker run -itd --name devis -p 8088:8088 sen"
             }
         }
     }
