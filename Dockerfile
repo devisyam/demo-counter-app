@@ -3,8 +3,7 @@ workdir /app
 copy . .
 run mvn install
 
-from openjdk:11-jre-slim
-workdir /app
-copy --from=dev /app/target/Uber.jar /app
-expose 8088
+from tomcat
+copy --from=dev /app/target/Uber.jar /usr/local/tomcat/webapps/Uber.jar
+expose 8008
 cmd ["java","-jar","Uber.jar"]
