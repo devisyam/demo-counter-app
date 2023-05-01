@@ -74,7 +74,7 @@ pipeline {
         }
         stage('docker host') {
             steps {
-                sh "docker run -itd --name don -p 8008:8008 sen"
+                sh "docker run -itd --name dan -p 8008:8080 sen"
             }
         }
     }
