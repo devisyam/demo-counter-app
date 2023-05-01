@@ -69,7 +69,7 @@ pipeline {
                     ],
                     credentialsId: 'nexus-auth',
                     groupId: 'com.example',
-                    nexusUrl: '34.125.85.117:8081',
+                    nexusUrl: '34.16.150.227:8081',
                     nexusVersion: 'nexus3',
                     protocol: 'http',
                     repository: 'dev',
@@ -84,7 +84,7 @@ pipeline {
         }
         stage('docker host') {
             steps {
-                sh "docker run -itd --name devis -p 8088:8088 sen"
+                sh "docker run -itd --name don -p 8008:8008 sen"
             }
         }
     }
