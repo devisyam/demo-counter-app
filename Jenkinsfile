@@ -43,30 +43,6 @@ pipeline {
                 }
             }
         }
-        stage('nexus artifact upload'){
-            steps {
-                script {
-                    def readPomVersion = readMavenPom file: 'pom.xml'
-                    //def nexusRepo = readPomVersion.Version.endsWith("SNAPSHOT") ? "dev-snapshot" : "dev"
-                    nexusArtifactUploader artifacts: 
-                    [
-                        [
-                            artifactId: 'springboot',
-                            classifier: '',
-                            file: 'target/Uber.jar',
-                            type: 'jar'
-                        ]
-                    ],
-                    credentialsId: 'nexus-auth',
-                    groupId: 'com.example',
-                    nexusUrl: '34.16.150.227:8081',
-                    nexusVersion: 'nexus3',
-                    protocol: 'http',
-                    repository: 'dev',
-                    version: "${readPomVersion.version}"
-                }
-            }
-        }
         stage('docker build'){
             steps {
                 sh "docker build -t sen ."
