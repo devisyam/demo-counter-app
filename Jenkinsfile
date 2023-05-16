@@ -19,7 +19,12 @@ pipeline {
         stage('UNIT testing'){
             
             steps{
-                sh 'mvn test'
+                sh 'mvn test -Dbrowser=localchrome'
+            }
+        }
+        stage('testing reports'){
+            steps {
+                publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: '', reportFiles: 'target/surefire-reports/Entent*.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
             }
         }
         stage('Integration testing'){
